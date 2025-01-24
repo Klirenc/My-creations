@@ -16,3 +16,30 @@ void loop () {
   Serial.print (" C, ");
   Serial.print (fahrenheit);
   Serial.println (" F");
+  if (celsius < baselineTemp) {
+    digitalWrite (2, LOW);
+    digitalWrite (3, LOW);
+    digitalWrite (4, LOW);
+  }
+  if (celsius >= baselineTemp && celsius < baselineTemp + 10) {
+    digitalWrite (2, HIGH);
+    digitalWrite (3, LOW);
+    digitalWrite (4, LOW);
+  }
+  if (celsius >= baselineTemp + 10 && celsius < baselineTemp + 20) {
+    digitalWrite (2, HIGH);
+    digitalWrite (3, HIGH);
+    digitalWrite (4, LOW);
+  }
+  if (celsius >= baselineTemp + 20 && celsius < baselineTemp + 30) {
+    digitalWrite (2, HIGH);
+    digitalWrite (3, HIGH);
+    digitalWrite (4, HIGH);
+  }
+  if (celsius >= baselineTemp + 30) {
+    digitalWrite (2, HIGH);
+    digitalWrite (3, HIGH);
+    digitalWrite (4, HIGH);
+  }
+  delay(1000);
+}
